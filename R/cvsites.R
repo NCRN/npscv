@@ -1,3 +1,8 @@
+
+
+
+
+
 cvsites<-function(fetch="code",network=NA, park=NA, data="water"){  
   base<-"http://irmadevservices.nps.gov/WaterQualityDataServices/OData/Sites"
   optnetwork<-ifelse(is.na(network), "", paste0("?$filter=NetworkCode eq '",network,"'"))
