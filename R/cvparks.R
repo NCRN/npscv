@@ -1,3 +1,5 @@
+#' @include filterpaste.R
+#' 
 #' @title cvparks
 #' 
 #' @description Returns the name and code of I&M parks with data as avaialable through the NPS common view
@@ -21,13 +23,15 @@
 
 cvparks<-function(fetch="code",network=NA, data="water"){  
   base<-"http://irmadevservices.nps.gov/WaterQualityDataServices/OData/Parks?$expand=Network"
-  optnetwork<-ifelse(is.na(network), "", paste0("&$filter=Network/NetworkCode eq '",network,"'"))
+  filtnames<-c("Network/NetworkCode")[!is.na(network)]
+  filtvalues<-c(network)[!is.na(network)]
+  optfilter<-filterpaste(punct="&",names=filtnames,values=filtvalues)
   optfetch<-switch(fetch,
                    code="&$select=ParkCode",
                    name="&$select=ParkName",
                    all=""
   )
   
-  fromJSON(url(paste0(base,optnetwork,optfetch)))[[2]]
+  fromJSON(url(paste0(base,optfilter,optfetch)))[[2]]
   
 }
