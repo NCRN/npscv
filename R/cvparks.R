@@ -2,7 +2,7 @@
 #' 
 #' @title cvparks
 #' 
-#' @description Returns the name and code of I&M parks with data as avaialable through the NPS common view
+#' @description Returns the name, park code and other data for I&M parks with data avaialable through the NPS common view
 #' 
 #' @importFrom jsonlite fromJSON
 #' 
