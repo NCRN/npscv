@@ -2,7 +2,7 @@
 #' 
 #' @title cvparks
 #' 
-#' @description Returns the name, park code and other data for I&M parks with data avaialable through the NPS common view
+#' @description Returns the name, park code and other data for I&M parks with data available through the NPS common view
 #' 
 #' @importFrom jsonlite fromJSON
 #' 
@@ -31,7 +31,5 @@ cvparks<-function(fetch="code",network=NA, data="water"){
                    name="&$select=ParkName",
                    all=""
   )
-  
   fromJSON(url(paste0(base,optfilter,optfetch)))[[2]]
-  
 }

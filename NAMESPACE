@@ -2,4 +2,5 @@
 
 export(cvnetworks)
 export(cvparks)
+export(cvsites)
 importFrom(jsonlite,fromJSON)
