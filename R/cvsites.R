@@ -6,20 +6,20 @@
 #' 
 #' @importFrom jsonlite fromJSON
 #' 
-#'  @param fetch  Indicates what you wish to retrive from the common view data service. Options are:
-#'  \describe{
-#'  \item{"code"}{The default. Returns the code for the site}
-#'  \item{"name"}{Returns the full name of the site}
-#'  \item{"all"}{Returns all data from the "parks" table of the common view as well as the nework name and code.}
-#'  }
-#'  @param network  A network four letter code in quotes. Only data on parks in that network will be returned.
-#'  @param park A park four letter code in qoutes. Only data from that park will be returned.
-#'  @param data Indicates the type of data you are interesed in. Currently has no function as only water monitoring data can be retrieved.
+#' @param fetch  Indicates what you wish to retrive from the common view data service. Options are:
+#' \describe{
+#' \item{"code"}{The default. Returns the code for the site}
+#' \item{"name"}{Returns the full name of the site}
+#' \item{"full}{Returns the: site name, site code, network code, network name, park code, park name, USGS site code, USGS nearest site code, site type, site latitude, site longitude, and description.}
+#' \item{"all"}{Returns all data from the "Site" table of the common view.}
+#' }
+#' @param network  A network four letter code in quotes. Only data on parks in that network will be returned.
+#' @param park A park four letter code in quotes. Only data from that park will be returned.
+#' @param data Indicates the type of data you are interesed in. Currently has no function as only water monitoring data can be retrieved.
 #'  
-#'  @return Either a \code{vector} with site codes or names, or a \code{data.frame} with all network data.
+#' @return Either a \code{vector} with site codes or names, or a \code{data.frame} with all network data.
 #'  
-#'  @export
-#'  
+#' @export
 
 
 
@@ -40,10 +40,10 @@ cvsites<-function(fetch="code",network=NA, park=NA, data="water"){
   optselect<-switch(fetch,
         code=paste0(selectpunct,"$select=SiteCode"),
         name=paste0(selectpunct,"$select=SiteName"),
+        full=paste0(selectpunct,"$select=SiteName,SiteCode,NetworkCode,NetworkName,ParkCode,ParkName,USGSCodeSite,USGSCodeNearest,SiteType,SiteLat,SiteLon,Description"),
         all=""
   )  
-             #return(paste0(base,optfilter))
-             fromJSON(url(paste0(base,optfilter,optselect)))[[2]]  
+             fromJSON(url(paste0(base,optfilter,optselect)),flatten=TRUE)[[2]]  
 }
 
 

@@ -1,20 +1,13 @@
 Package: npscv
 Type: Package
 Title: Access to NPS common view data.
-Version: 0.0.4
-Date: 2015-10-27
+Version: 0.0.5
+Date: 2015-11-02
 Author: John Paul Schmit
-Maintainer: John Paul Schmit <john_schmit@nps.gov>
-Description: This pacakge is designed faciliate access for R users to the NPS
-    `common View` data via the OData service.
-License: Public Domain
-LazyData: true
-Depends:
-    R (>= 3.2.1)
-Imports:
-    jsonlite(>= 0.9.16)
 Collate:
-    'cvnetworks.R'
     'filterpaste.R'
+    'cvcharacteristics.R'
+    'cvnetworks.R'
     'cvparks.R'
     'cvsites.R'
+RoxygenNote: 5.0.0
