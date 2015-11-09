@@ -1,12 +1,13 @@
 Package: npscv
 Type: Package
 Title: Access to NPS common view data.
-Version: 0.0.5
-Date: 2015-11-02
+Version: 0.0.6
+Date: 2015-11-09
 Author: John Paul Schmit
 Collate:
     'filterpaste.R'
     'cvcharacteristics.R'
+    'cvdata.R'
     'cvnetworks.R'
     'cvparks.R'
     'cvsites.R'

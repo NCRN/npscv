@@ -2,7 +2,7 @@
 #' 
 #' @title cvcharacteristics
 #' 
-#' @description Returns the name, other data for wat4er qruaily charactersitcs that are avaialable through the NPS common view
+#' @description Returns the name, other data for water quality charactersitcs that are avaialable through the NPS common view
 #' 
 #' @importFrom jsonlite fromJSON
 #' 

@@ -33,7 +33,9 @@ cvparks<-function(fetch="code",network=NA, data="water"){
                    all=""
   )
   DataOut<-fromJSON(url(paste0(base,optfilter,optfetch)),flatten=TRUE)[[2]]
-  names(DataOut)[names(DataOut)=="Network.NetworkCode"]<-"NetworkCode"
-  names(DataOut)[names(DataOut)=="Network.NetworkName"]<-"NetworkName"
+  if(fetch!="all"){
+    names(DataOut)[names(DataOut)=="Network.NetworkCode"]<-"NetworkCode"
+    names(DataOut)[names(DataOut)=="Network.NetworkName"]<-"NetworkName"
+  }
   return(DataOut)
 }

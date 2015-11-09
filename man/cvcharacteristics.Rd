@@ -25,6 +25,6 @@ cvcharacteristics(fetch = "name", network = NA, park = NA,
 Either a \code{vector} with site codes or names, or a \code{data.frame} with all network data.
 }
 \description{
-Returns the name, other data for wat4er qruaily charactersitcs that are avaialable through the NPS common view
+Returns the name, other data for water quality charactersitcs that are avaialable through the NPS common view
 }
 
